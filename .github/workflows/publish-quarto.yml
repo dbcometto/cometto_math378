@@ -15,12 +15,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'  # Specify the Python version
+        python-version: '3.12.1'  # Specify the Python version
 
     - name: Install Quarto
       run: |
-        Invoke-WebRequest -Uri "https://quarto.org/download/latest/windows" -OutFile "quarto-installer.exe"
-        Start-Process -FilePath "quarto-installer.exe" -ArgumentList '/S' -Wait
+        Invoke-WebRequest -Uri "https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.551/quarto-1.4.551-win.msi" -OutFile "quarto-1.4.551-win.msi"
+        Start-Process -FilePath "quarto-1.4.551-win.msi" -ArgumentList '/S' -Wait
 
     - name: Build Quarto Website
       run: quarto render
