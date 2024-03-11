@@ -1,26 +1,24 @@
-name: Build and Deploy Quarto Website on Windows
+name: Build and Deploy Quarto Website
 
 on:
   push:
     branches:
-      - main  # Adjust this to your repository's default branch if different
+      - main  # or your default branch
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
-    
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Python
+    - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12.1'  # Specify the Python version
+        python-version: '3.12.1'
 
     - name: Install Quarto
       run: |
-        Invoke-WebRequest -Uri "https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.551/quarto-1.4.551-win.msi" -OutFile "quarto-1.4.551-win.msi"
-        Start-Process -FilePath "quarto-1.4.551-win.msi" -ArgumentList '/S' -Wait
+        wget -qO- "https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.551/quarto-1.4.551-linux-amd64.deb" | bash
 
     - name: Build Quarto Website
       run: quarto render
@@ -29,4 +27,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site  # The default output directory for Quarto projects
+        publish_dir: ./_site  # default build directory for Quarto
