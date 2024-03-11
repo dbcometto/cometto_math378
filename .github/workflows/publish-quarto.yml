@@ -1,0 +1,30 @@
+name: Build and Deploy Quarto Website
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install Quarto
+      run: |
+        wget -qO- "https://quarto.org/download/latest/bash" | bash
+
+    - name: Build Quarto Website
+      run: quarto render
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site  # default build directory for Quarto

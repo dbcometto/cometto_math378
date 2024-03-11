@@ -13,6 +13,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn import preprocessing
 from vetiver import VetiverModel, vetiver_pin_write
 import pickle
+import pins
 ```
 
 ## Get Data
