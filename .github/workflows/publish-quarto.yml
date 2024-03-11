@@ -18,14 +18,8 @@ jobs:
 
     - name: Install Quarto
       run: |
-        wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.551/quarto-1.4.551-linux-amd64.tar.gz &&
-        mkdir ~/opt &&
-        tar -C ~/opt -xvzf quarto-1.4.551-linux-amd64.tar.gz &&
-        mkdir ~/bin &&
-        ln -s ~/opt/quarto-1.4.551/bin/quarto ~/bin/quarto &&
-        ( echo ""; echo 'export PATH=$PATH:~/bin\n' ; echo "" ) >> ~/.profile &&
-        source ~/.profile &&
-        quarto check
+        wget -qO- "https://quarto.org/download/latest/quarto-linux-amd64.deb" > quarto.deb
+        sudo dpkg -i quarto.deb
 
     - name: Build Quarto Website
       run: quarto render
