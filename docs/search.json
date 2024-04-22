@@ -67,6 +67,6 @@
     "href": "index.html",
     "title": "devops_website",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nHere are links to the other files:\neda\nmodel\n(Ignore) API Experiment:\n\n#from vetiver import VetiverModel, VetiverAPI\n#import pins\n\n\n#b = pins.board_folder('data/model', allow_pickle_read=True)\n#v = VetiverModel.from_pin(b, 'penguin_model')\n\n#app = VetiverAPI(v, check_prototype=True)\n#app.run(port = 8080)\n\nSee app?\napp"
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nHere are links to the other files:\neda\nmodel\nSee app?\napp\npython test\n\n1+1\n\n2"
   }
 ]

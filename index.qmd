@@ -16,21 +16,12 @@ Here are links to the other files:
 
 [model](model.qmd)
 
-(Ignore) API Experiment:
-
-```{python}
-#from vetiver import VetiverModel, VetiverAPI
-#import pins
-```
-
-```{python}
-#b = pins.board_folder('data/model', allow_pickle_read=True)
-#v = VetiverModel.from_pin(b, 'penguin_model')
-
-#app = VetiverAPI(v, check_prototype=True)
-#app.run(port = 8080)
-```
-
 See app?
 
 [app](127.0.0.1:27940)
+
+python test
+
+```{python}
+1+1
+```
